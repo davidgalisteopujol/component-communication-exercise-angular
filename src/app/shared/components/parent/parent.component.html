@@ -1,0 +1,14 @@
+<div class="border border-primary p-4 border-3">
+
+    <h3>PARENT</h3>
+    <p>message: {{messageFromChild}}</p>
+
+    <div class="d-flex justify-content-center mb-3">
+        <button type="button" class="btn btn-primary m-1" (click)="receiveMessageFromService()">Use Service</button>
+        <button type="button" class="btn btn-primary m-1" (click)="sendMessageByInput()">Use Input Property</button>
+        <button type="button" class="btn btn-primary m-1" (click)="receiveMessageFromObservable()">Use Observable</button>
+    </div>
+
+    <app-child [messageFromParent]="messageToChild" (messageToParent)="receiveMessageFromChild($event)" />
+    
+</div>
