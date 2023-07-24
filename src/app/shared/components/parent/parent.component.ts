@@ -24,7 +24,7 @@ export class ParentComponent implements OnDestroy {
   };
 
   receiveMessageFromService(): void {
-    this.messageToChild = this.messageService.messageToChild;
+    this.messageToChild = this.messageService.getMessageToChild();
   };
 
   receiveMessageFromObservable(): void {

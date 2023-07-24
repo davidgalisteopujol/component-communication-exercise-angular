@@ -6,20 +6,35 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class MessageService {
 
-  public messageToParent: string = "CHILD USING SERVICE";
-  public messageToChild: string = "PARENT USING SERVICE";
+  private messageToParent = "PARENT USING SERVICE";
+  private messageToChild = "CHILD USING SERVICE";
+
 
   private parentSubject$ = new BehaviorSubject<string>("PARENT USING OBSERVABLE");
   private childSubject$ = new BehaviorSubject<string>("CHILD USING OBSERVABLE");
 
   constructor() { }
 
-  getChildTextSubject(): Observable<string> {
-    return this.childSubject$.asObservable();
+  getMessageToParent(): string {
+    return this.messageToParent;
+  }
+
+  getMessageToChild(): string {
+    return this.messageToChild;
+  }
+
+  setParentSubject(value: string): void {
+    this.parentSubject$.next(value)
   };
 
   getParentTextSubject(): Observable<string> {
     return this.parentSubject$.asObservable();
   };
+
+  getChildTextSubject(): Observable<string> {
+    return this.childSubject$.asObservable();
+  };
+
+
 
 }
